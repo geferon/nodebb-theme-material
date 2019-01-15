@@ -7,7 +7,6 @@ Theme for NodeBB using Google Material Design
     * Includes fixes for SSO Logout and CSS Tweaks
     * Includes Vote Counts on Topics.tpl
 
-
 ## Credits
 
 Animate.css - http://daneden.me/animate
