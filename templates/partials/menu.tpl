@@ -200,8 +200,14 @@
 
 					<li role="presentation" class="divider"></li>
                     <li component="user/logout">
-                        <a href="#"><i class="fa fa-fw fa-sign-out"></i><span> [[global:logout]]</span></a>
-                    </li>
+						<form method="post" action="{relative_path}/logout" style="line-height: 1.42857em;">
+							<input type="hidden" name="_csrf" value="{config.csrf_token}">
+							<input type="hidden" name="noscript" value="true">
+							<button style="padding-left:17px !important; color: rgb(33, 33, 33) !important;" class="btn btn-link">
+								<i class="fa fa-fw fa-sign-out"></i><span style="text-transform: capitalize; font-size:13px;"> [[global:logout]]</span>
+							</button>
+						</form>
+					</li>                    
                 </ul>
             </li>
             <!-- ELSE -->
