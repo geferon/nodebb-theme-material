@@ -51,8 +51,8 @@
 			<!-- IF !template.category -->
 			<small class="lv-small">
 				<span class="hidden-xs">[[global:posts]] <span class="human-readable-number" title="{topics.postcount}"></span> | [[global:views]] <span class="human-readable-number" title="{topics.viewcount}"></span> | </span>
-				<strong>{topics.user.username}</strong> <a href="{config.relative_path}/category/{topics.category.slug}">[[global:posted_in, {topics.category.name}]] <i class="fa {topics.category.icon}"></i></a> <span class="timeago" title="{topics.timestampISO}"></span>
-			</small>
+				<strong>{topics.user.username}</strong> <a href="{config.relative_path}/category/{topics.category.slug}">[[global:posted_in, {topics.category.name}]] <i class="fa {topics.category.icon}"></i></a> <span class="timeago" title="{topics.timestampISO}"></span> | <span>[[global:votes]] <span class="human-readable-number" title="{topics.votes}"></span>		
+						</small>
 			<!-- ENDIF !template.category -->
 
 			<div class="lv-attrs hidden-xs">
