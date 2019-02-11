@@ -19,6 +19,9 @@
 		},
 		{
 			"hook": "filter:user.getSettings", "method": "getSettings"
+		},
+		{
+			"hook": "filter:widgets.getAreas", "method": "defineWidgetAreas"
 		}
 	],
 	"scripts": [
