@@ -27,7 +27,7 @@
 	<!-- ENDIF useCustomCSS -->
 </head>
 
-<body class="{bodyClass} theme-{config.selectedSkin}">
+<body class="{bodyClass} theme-{config.selectedSkin} skin-<!-- IF bootswatchSkin -->{bootswatchSkin}<!-- ELSE -->noskin<!-- END -->">
     <!-- IMPORT partials/menu.tpl -->
 
 	<div class="container" id="content">
