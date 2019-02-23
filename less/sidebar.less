@@ -84,14 +84,15 @@
 body:not(.sw-toggled) #sidebar {
 	box-shadow: 0 0 10px rgba(51, 51, 51, .38);
 
-	@media (min-width: @screen-lg-min) {
+	// This is stupid, why no transition on smaller devices?
+	// @media (min-width: @screen-lg-min) {
 		-webkit-transition: all;
 		-moz-transition: all;
 		-o-transition: all;
 		transition: all;
 		-webkit-transition-duration: 300ms;
 		transition-duration: 300ms;
-	}	
+	// }	
 }
 
 body.sw-toggled #sidebar {
