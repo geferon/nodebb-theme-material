@@ -13,7 +13,7 @@ input:active, input:focus {
 .form-control {
 	box-shadow: none;
 	border: 0;
-	border-bottom: @form-control-border;
+	// border-bottom: @form-control-border;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
@@ -132,6 +132,7 @@ html:not(.ie9) .select.fg-line:before {
 .fg-line {
 	position: relative;
 	vertical-align: top;
+	border-bottom: @form-control-border;
 
 	&:not(.form-group) {
 		display: inline-block;
@@ -158,7 +159,7 @@ html:not(.ie9) .select.fg-line:before {
 	&:not(.disabled):after, &:not(.readonly):after {
 		position: absolute;
 		z-index: 3;
-		bottom: 0;
+		bottom: -1px;
 		left: 0;
 		height: 2px;
 		width: 0;
