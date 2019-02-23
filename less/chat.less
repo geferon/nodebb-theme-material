@@ -39,13 +39,21 @@
 	}
 }
 
+.chats {
+	position: relative;
+}
+
 .chats .listview .lv-footer {
 	margin-top: 0;
     min-height: inherit;
 }
 
 #messages-main {
-	position: relative;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
 
 	&:before,
 	&:after {
@@ -201,7 +209,12 @@
 		}
 	}
 
+	[component="chat/messages"] {
+		height: 100%;
+	}
+
 	.ms-body {
+		height: 100%;
 		background-color: @chat-content-bg-color;
 
 		@media (min-width: @screen-sm-min) {
@@ -376,6 +389,10 @@
 		}
 	}
 
+	.ms-body .lv-message {
+		height: 100%;
+	}
+
 	.ms-item {
 		padding: 5px 10px 7px;
 		border-radius: 2px;
@@ -398,7 +415,11 @@
 	}
 
 	.listview {
+		display: flex;
+		flex-direction: column;
+
 		.lv-header-alt {
+			flex-grow: 0;
 			padding: 12px;
 
 			@media (max-width: @screen-xs-max) {
@@ -407,11 +428,13 @@
 		}
 
 		.lv-footer {
+			flex-grow: 0;
 			padding: 5px 10px 5px 0;
 			background-color: @chat-footer-bg-color;
 		}
 
 		&.lv-message .lv-body {
+			flex-grow: 1;
 			min-height: 315px;
 			overflow-x: auto;
 			padding: 10px;
@@ -518,8 +541,6 @@
 	@media (max-width: @screen-xs-max) {
 		width: 100%;
 		height: 100%;
-		top: 0 !important;
-		left: 0 !important;
 
 		.modal-dialog {
 			height: 100%;
@@ -537,6 +558,19 @@
 		    margin-left: -15px;
 		    margin-right: -15px;
 		    background-color: @chat-footer-bg-color;
+		}
+	}
+
+	@media (min-width: @screen-sm-min) {
+		.modal-content {
+			top: 0 !important;
+			left: 0 !important;
+			width: auto !important;
+			height: auto !important;
+
+			.modal-body {
+				height: auto !important;
+			}
 		}
 	}
 
@@ -646,11 +680,12 @@
 	}
 
 	.chat-content {
-		height: 250px;
-	 	overflow-y: auto;
+		// height: 250px;
+		flex: 1;
+		overflow-y: auto;
 		resize: none;
 		word-wrap: break-word;
-		padding: 0;
+		padding: 10px;
 		margin-top: 10px;
 	}
 
@@ -682,8 +717,43 @@
 	    }
 	}
 
+	.modal-content {
+		display: flex;
+		flex-flow: column;
+	}
+
+	.modal-body {
+		flex: 1;
+		display: flex;
+		flex-flow: column;
+		padding: 0;
+	}
+
+	.chat-footer {
+		display: flex;
+		padding-top: 10px;
+		background-color: @chat-footer-bg-color;
+
+		[component="chat/input"] {
+			padding-bottom: 10px;
+		}
+
+		[component="chat/message/remaining"] {
+			position: absolute;
+			right: 4.5em;
+			z-index: 2;
+			bottom: 20px;
+			color: #aaa;
+		}
+	}
+
 	.modal-header {
-	    padding: 5px 10px;
+		padding: 10px 10px 10px 15px;
+		
+		h4 {
+			vertical-align: middle;
+			line-height: normal;
+		}
 
 	    .close {
 	        margin-top: 5px;
@@ -736,7 +806,7 @@
 
 			.modal-content {
 				.modal-header {
-					padding: 15px 5px;
+					padding: 15px 5px 15px 10px;
 
 					.users-tag-container {
 						max-width: ~"calc(100% - 75px)";
@@ -744,28 +814,15 @@
 				}
 
 				.modal-body {
-					height: 100%;
 					padding: 10px;
 
 					.chat-content {
 						min-height: 350px;
+						max-height: 60vh;
 					}
-
 					.chat-footer {
-						display: flex;
-						padding-top: 10px;
-						background-color: @chat-footer-bg-color;
-
-						[component="chat/input"] {
-							padding-bottom: 10px;
-						}
-
 						[component="chat/message/remaining"] {
-							position: absolute;
-							right: 4.5em;
-							z-index: 2;
 							bottom: 10px;
-							color: #aaa;
 						}
 					}
 				}
